@@ -5,6 +5,6 @@ node 'wiki' {
   }
 }
 
-node 'wikitest' {
+# node 'wikitest' {
 
-}
+# }
