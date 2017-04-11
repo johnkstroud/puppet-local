@@ -1,4 +1,21 @@
 node 'puppetagent-vagrant.topgolfusa.com' {
+  class { 'linux':}
+
+}
+
+class linux {
+
+  $ntpservice = $osfamily ? {
+    'redhat'  => 'ntpd',
+    'debian'  => 'ntp',
+    default   => 'ntp',
+  }
+
+  $ntppackage = $osfamily ? {
+    'redhad' => 'ntpd',
+    'devian' => 'ntp',
+    default   => 'ntp',
+  }
 
   file { '/info.txt':
     ensure  => 'present',
@@ -9,13 +26,11 @@ node 'puppetagent-vagrant.topgolfusa.com' {
     ensure => 'installed',
   }
 
-  service { 'ntp':
+  service { $ntpservice:
     ensure => running,
     enable => true,
   }
-
 }
-
 # node 'wikitest' {
 
 # }
