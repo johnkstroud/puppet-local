@@ -5,6 +5,8 @@ node 'puppetagent-vagrant.topgolfusa.com' {
 
 class linux {
 
+  $admintools = ['git','nano','screen']
+
   $ntpservice = $osfamily ? {
     'redhat'  => 'ntpd',
     'debian'  => 'ntp',
@@ -22,7 +24,7 @@ class linux {
     content => inline_template("Created by Puppet at <%= Time.now %>\n"),
   }
 
-  package { 'ntp':
+  package { $admintools:
     ensure => 'installed',
   }
 
