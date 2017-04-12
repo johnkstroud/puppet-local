@@ -1,5 +1,6 @@
 node 'puppetagent-vagrant.topgolfusa.com' {
   class { 'linux':}
+  class { 'mediawiki':}
 
 }
 

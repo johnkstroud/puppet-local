@@ -43,6 +43,22 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class mediawiki {
+  $phpmysql = $osfamily ? {
+    'redhat'  => 'php-mysql',
+    'debian'  => 'php5-mysql',
+    default   => 'php-mysql',
+  }
 
+  package { $phpmysql:
+    ensure => 'present',
+  }
+
+  class { '::apache':
+    docroot     => '/var/www/html',
+    mpm_module  => 'prefork',
+    subscribe   => Package[$phpmysql],
+  }
+
+  class { '::apache::mod::php':}
 
 }
