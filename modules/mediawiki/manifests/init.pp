@@ -65,7 +65,7 @@ class mediawiki {
     ensure   => 'present',
     provider => 'git',
     source   => 'https://github.com/wikimedia/mediawiki.git',
-    revision => 'REL_23',
+    revision => 'REL1_23',
   }
 
   file { '/var/www/html/index.html':
