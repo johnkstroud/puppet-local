@@ -43,7 +43,7 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class mediawiki {
-  $phpmysql = $osfamily ? {
+  $phpmysql = $::osfamily ? {
     'redhat'  => 'php-mysql',
     'debian'  => 'php5-mysql',
     default   => 'php-mysql',
