@@ -43,6 +43,8 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class mediawiki {
+  mod 'puppetlabs-vcsrepo', '1.0.2'
+
   $phpmysql = $::osfamily ? {
     'redhat'  => 'php-mysql',
     'debian'  => 'php5-mysql',
