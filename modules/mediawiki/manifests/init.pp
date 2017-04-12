@@ -77,4 +77,9 @@ class mediawiki {
   }
 
   File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
+
+  class { '::mysql::server':
+    root_password => 'training',
+  }
+
 }
