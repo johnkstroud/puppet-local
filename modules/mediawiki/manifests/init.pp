@@ -43,6 +43,7 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class mediawiki {
+include vcsrepo
 
   $phpmysql = $::osfamily ? {
     'redhat'  => 'php-mysql',
