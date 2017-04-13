@@ -43,7 +43,6 @@
 # Copyright 2017 Your name here, unless otherwise noted.
 #
 class mediawiki {
-include vcsrepo
 
   $phpmysql = $::osfamily ? {
     'redhat'  => 'php-mysql',
@@ -71,7 +70,7 @@ include vcsrepo
     ensure => 'absent',
   }
 
-  vcsrepo { '/var/www/html':
+  ::vcsrepo { '/var/www/html':
     ensure   => present,
     provider => git,
     source   => 'https://github.com/wikimedia/mediawiki.git',

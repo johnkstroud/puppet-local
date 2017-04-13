@@ -3,17 +3,18 @@ node 'puppetagent-vagrant.topgolfusa.com' {
   class { 'mediawiki':}
 }
 
+# install admin tools
 class linux {
 
   $admintools = ['git','nano','screen']
 
-  $ntpservice = $osfamily ? {
+  $ntpservice = $::osfamily ? {
     'redhat'  => 'ntpd',
     'debian'  => 'ntp',
     default   => 'ntp',
   }
 
-  $ntppackage = $osfamily ? {
+  $ntppackage = $::osfamily ? {
     'redhad' => 'ntpd',
     'devian' => 'ntp',
     default   => 'ntp',
@@ -33,6 +34,3 @@ class linux {
     enable => true,
   }
 }
-# node 'wikitest' {
-
-# }
