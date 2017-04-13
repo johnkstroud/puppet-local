@@ -62,10 +62,21 @@ class mediawiki {
 
   class { '::apache::mod::php':}
 
+  # vcsrepo { '/var/www/html':
+  #   ensure   => present,
+  #   provider => git,
+  #   source   => 'git://github.com/wikimedia/mediawiki.git',
+  #   revision => 'REL1_23',
+  # }
+
   vcsrepo { '/var/www/html':
     ensure   => present,
     provider => git,
-    source   => 'git://github.com/wikimedia/mediawiki.git',
+    remote   => 'origin'
+    source   => {
+      'origin'       => 'https://github.com/wikimedia/mediawiki.git',
+      'other_remote' => 'https://github.com/wikimedia/mediawiki.git'
+    },
     revision => 'REL1_23',
   }
 
