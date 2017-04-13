@@ -70,16 +70,20 @@ class mediawiki {
     ensure => 'absent',
   }
 
-  vcsrepo { '/var/www/html':
+  vcsrepo { '/opt/code':
     ensure   => present,
     provider => git,
-    source   => 'https://github.com/johnkstroud/puppet-local.git',
-    # revision => 'REL1_23',
-    revision => 'master',
+    source   => 'https://github.com/wikimedia/mediawiki.git',
+    revision => 'REL1_23',
+    force    => true,
+    user     => 'root',
+    group    => 'root',
+    owner    => 'root',
+    # revision => 'master',
     # require  =>  Class['::apache']
   }
 
-  File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
+  # File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
 
   class { '::mysql::server':
     root_password => 'training',
