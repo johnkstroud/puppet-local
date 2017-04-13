@@ -66,8 +66,8 @@ class mediawiki {
     ensure   => present,
     provider => git,
     # remote   => 'REL1_23',
-    source   => 'https://github.com/wikimedia/mediawiki.git',
-    revision => 'REL1_23',
+    source   => 'git://github.com/wikimedia/mediawiki.git',
+    # revision => 'REL1_23',
   }
 
   file { '/var/www/html/index.html':
