@@ -62,16 +62,22 @@ class mediawiki {
 
   class { '::apache::mod::php':}
 
-  vcsrepo { 'mediawiki':
+  vcsrepo { '/var/www/html':
     ensure   => present,
-    path     => '/var/www/html',
-    provider => 'git',
-    source   => 'git://github.com/wikimedia/mediawiki.git',
-    force    => true,
+    provider => git,
+    source   => 'https://github.com/wikimedia/mediawiki.git',
     revision => 'REL1_23',
-    user     => 'root',
-    group    => 'root',
   }
+  # vcsrepo { 'mediawiki':
+  #   ensure   => present,
+  #   path     => '/var/www/html',
+  #   provider => 'git',
+  #   source   => 'https://github.com/wikimedia/mediawiki.git',
+  #   force    => true,
+  #   revision => 'REL1_23',
+  #   user     => 'root',
+  #   group    => 'root',
+  # }
 
   file { '/var/www/html/index.html':
     ensure => 'absent',
@@ -81,7 +87,7 @@ class mediawiki {
     ensure => 'absent',
   }
 
-  File['/var/www/html/index.html'] -> Vcsrepo['mediawiki']
+  File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
 
   class { '::mysql::server':
     root_password => 'training',
