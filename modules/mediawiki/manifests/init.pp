@@ -44,43 +44,36 @@
 #
 class mediawiki {
 
-  # $phpmysql = $::osfamily ? {
-  #   'redhat'  => 'php-mysql',
-  #   'debian'  => 'php5-mysql',
-  #   default   => 'php-mysql',
-  # }
-  #
-  # package { $phpmysql:
-  #   ensure => 'present',
-  # }
-  #
-  # class { '::apache':
-  #   docroot    => '/var/www/html',
-  #   mpm_module => 'prefork',
-  #   subscribe  => Package[$phpmysql],
-  # }
-  #
-  # class { '::apache::mod::php':}
-
-  vcsrepo { '/var/www/html':
-    ensure   => latest,
-    provider => git,
-    source   => 'git://github.com/wikimedia/mediawiki.git',
-    revision => 'REL1_23',
+  $phpmysql = $::osfamily ? {
+    'redhat'  => 'php-mysql',
+    'debian'  => 'php5-mysql',
+    default   => 'php-mysql',
   }
 
-  # file { '/var/www/html/index.html':
-  #   ensure => 'absent',
-  # }
-  #
-  # file { '/etc/apache2/sites-enabled/15-default.conf':
-  #   ensure => 'absent',
-  # }
-  #
-  # File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
-  #
-  # class { '::mysql::server':
-  #   root_password => 'training',
-  # }
+  package { $phpmysql:
+    ensure => 'present',
+  }
+
+  class { '::apache':
+    docroot    => '/var/www/html',
+    mpm_module => 'prefork',
+    subscribe  => Package[$phpmysql],
+  }
+
+  class { '::apache::mod::php':}
+
+  file { '/var/www/html/index.html':
+    ensure => 'absent',
+  }
+
+  file { '/etc/apache2/sites-enabled/15-default.conf':
+    ensure => 'absent',
+  }
+
+  File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
+
+  class { '::mysql::server':
+    root_password => 'training',
+  }
 
 }
