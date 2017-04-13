@@ -64,7 +64,7 @@ class mediawiki {
 
   vcsrepo { '/var/www/html':
     ensure   => present,
-    provider => git,
+    provider => 'git',
     source   => 'git://github.com/wikimedia/mediawiki.git',
     force    => true,
     revision => 'REL1_23',
@@ -80,7 +80,7 @@ class mediawiki {
     ensure => 'absent',
   }
 
-  #File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
+  File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
 
   class { '::mysql::server':
     root_password => 'training',
