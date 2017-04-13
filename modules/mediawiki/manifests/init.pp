@@ -73,9 +73,10 @@ class mediawiki {
   vcsrepo { '/var/www/html':
     ensure   => present,
     provider => git,
-    source   => 'git://github.com/wikimedia/mediawiki.git',
+    source   => 'https://github.com/wikimedia/mediawiki.git',
     # revision => 'REL1_23',
-    require  =>  Class['::apache']
+    revision => 'master',
+    # require  =>  Class['::apache']
   }
 
   File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
