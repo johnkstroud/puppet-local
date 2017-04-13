@@ -1,14 +1,6 @@
 node 'puppetagent-vagrant.topgolfusa.com' {
   class { 'linux':}
   class { 'mediawiki':}
-
-  vcsrepo { '/var/www/html':
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/wikimedia/mediawiki.git',
-    #revision => 'REL1_23',
-  }
-
 }
 
 class linux {
