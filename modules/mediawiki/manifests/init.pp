@@ -68,6 +68,10 @@ class mediawiki {
     source   => 'git://github.com/wikimedia/mediawiki.git',
     force    => true,
     revision => 'REL1_23',
+    user     => 'root',
+    group    => 'root',
+  }
+
   }
 
   file { '/var/www/html/index.html':
