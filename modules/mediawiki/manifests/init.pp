@@ -81,7 +81,7 @@ class mediawiki {
     ensure => 'absent',
   }
 
-  File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
+  File['/var/www/html/index.html'] -> Vcsrepo['mediawiki']
 
   class { '::mysql::server':
     root_password => 'training',
