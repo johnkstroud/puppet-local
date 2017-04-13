@@ -72,9 +72,9 @@ class mediawiki {
   vcsrepo { '/var/www/html':
     ensure   => present,
     provider => git,
-    remote   => 'origin'
+    remote   => 'REL1_23',
     source   => 'https://github.com/wikimedia/mediawiki.git',
-    revision => 'REL1_23',
+    # revision => 'REL1_23',
   }
 
   file { '/var/www/html/index.html':
