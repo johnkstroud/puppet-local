@@ -70,6 +70,14 @@ class mediawiki {
     ensure => 'absent',
   }
 
+  vcsrepo { '/var/www/html':
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/wikimedia/mediawiki.git',
+    # revision => 'REL1_23',
+    require  =>  Class['::apache']
+  }
+
   File['/var/www/html/index.html'] -> Vcsrepo['/var/www/html']
 
   class { '::mysql::server':
