@@ -74,8 +74,8 @@ class mediawiki {
     provider => git,
     remote   => 'origin'
     source   => {
-      'origin'       => 'https://github.com/wikimedia/mediawiki.git',
-      'other_remote' => 'https://github.com/wikimedia/mediawiki.git'
+                'origin'       => 'https://github.com/wikimedia/mediawiki.git',
+                'other_remote' => 'https://github.com/wikimedia/mediawiki.git'
     },
     revision => 'REL1_23',
   }
