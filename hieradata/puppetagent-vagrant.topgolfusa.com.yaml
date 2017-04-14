@@ -2,7 +2,7 @@
 classes:
    - mediawiki
    - linux
-mediawiki:wikisitename: test
+mediawiki::wikisitename: test
 mediawiki::wikimetanamespace: Test
 mediawiki::wikiserver: http://192.168.1.202
 mediawiki::wikidbserver: localhost
