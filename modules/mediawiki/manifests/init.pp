@@ -66,9 +66,9 @@ class mediawiki {
     ensure => 'absent',
   }
 
-  file { '/etc/apache2/sites-enabled/15-default.conf':
-    ensure => 'absent',
-  }
+  # file { '/etc/apache2/sites-enabled/15-default.conf':
+  #  ensure => 'absent',
+  # }
 
   vcsrepo { '/var/www/html':
     ensure   => present,
