@@ -30,7 +30,7 @@ $wgScriptPath = "";
 $wgScriptExtension = ".php";
 
 ## The protocol and server name to use in fully-qualified URLs
-$wgServer = "<%= wikiserver %>";
+$wgServer = "<%= $wikiserver %>";
 
 ## The relative URL path to the skins directory
 $wgStylePath = "$wgScriptPath/skins";
@@ -53,10 +53,10 @@ $wgEmailAuthentication = true;
 
 ## Database settings
 $wgDBtype = "mysql";
-$wgDBserver = "<%= wikidbserver %>";
-$wgDBname = "<%= wikidbname %>";
-$wgDBuser = "<%= wikidbuser %>";
-$wgDBpassword = "<%= wikidbpassword %>";
+$wgDBserver = "<%= $wikidbserver %>";
+$wgDBname = "<%= $wikidbname %>";
+$wgDBuser = "<%= $wikidbuser %>";
+$wgDBpassword = "<%= $wikidbpassword %>";
 
 # MySQL specific settings
 $wgDBprefix = "";
@@ -103,7 +103,7 @@ $wgSecretKey = "c14dbfdee832471537379d991f327ac760abc6b2f778c9bba85ba66dad2a5c96
 
 # Site upgrade key. Must be set to a string (default provided) to turn on the
 # web installer while LocalSettings.php is in place
-$wgUpgradeKey = "<%= wikiupgradekey %>";
+$wgUpgradeKey = "<%= $wikiupgradekey %>";
 
 ## Default skin: you can change the default skin. Use the internal symbolic
 ## names, ie 'cologneblue', 'monobook', 'vector':
