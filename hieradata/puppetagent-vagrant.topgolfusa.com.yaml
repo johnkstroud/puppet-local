@@ -1,0 +1,12 @@
+---
+classes:
+   - mediawiki
+   - linux
+mediawiki:wikisitename: test
+mediawiki::wikimetanamespace: Test
+mediawiki::wikiserver: http://192.168.1.202
+mediawiki::wikidbserver: localhost
+mediawiki::wikidbname: my_wiki
+mediawiki::wikidbuser: root
+mediawiki::wikidbpassword: training
+mediawiki::wikiupgradekey: f83d424825a76b80
