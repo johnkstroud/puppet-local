@@ -1,5 +1,5 @@
 node 'puppetagent-vagrant.topgolfusa.com' {
-  heira_include('classes')
+  hiera_include('classes')
   # class { 'linux':}
   # class { 'mediawiki':}
 }
