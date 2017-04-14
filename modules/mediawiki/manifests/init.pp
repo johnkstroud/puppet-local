@@ -91,7 +91,7 @@ class mediawiki {
 
   file { 'LocalSettings.php':
     ensure  => 'file',
-    path    => 'var/www/html/LocalSettings.php',
+    path    => '/var/www/html/LocalSettings.php',
     content => template('mediawiki/LocalSettings.erb'),
   }
 
