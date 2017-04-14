@@ -1,6 +1,17 @@
 node 'puppetagent-vagrant.topgolfusa.com' {
+
+  $wikisitename = 'test'
+  $wikimetanamespace = 'Test'
+  $wikiserver = 'http://192.168.1.202'
+  $wikidbserver = 'localhost'
+  $wikidbname = 'my_wiki'
+  $wikidbuser = 'root'
+  $wikidbpassword = 'training'
+  $wikiupgradekey = 'f83d424825a76b80'
+
   class { 'linux':}
   class { 'mediawiki':}
+
 }
 
 # install admin tools
