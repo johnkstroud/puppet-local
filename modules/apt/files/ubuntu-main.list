@@ -1,0 +1,9 @@
+
+#------------------------------------------------------------------------------#
+# OFFICIAL UBUNTU REPOS #
+#------------------------------------------------------------------------------#
+
+###### Ubuntu Main Repos
+deb http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb-src http://us.archive.ubuntu.com/ubuntu/ trusty main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu trusty-security main
