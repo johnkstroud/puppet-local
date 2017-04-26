@@ -2,6 +2,7 @@
 
 class tgapt {
   # include 'apt::ubuntuapt'
+  include apt
 
   file { '/etc/apt/sources.list.d/newrelic.list':
     ensure => present,
