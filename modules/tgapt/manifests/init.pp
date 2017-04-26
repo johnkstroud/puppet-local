@@ -6,7 +6,7 @@ class tgapt {
 
   file { '/etc/apt/sources.list.d/newrelic.list':
     ensure => present,
-    source => 'puppet:///modules/apt/newrelic.list',
+    source => 'puppet:///modules/tgapt/newrelic.list',
   }
 
   apt::key {'New Relic':
@@ -18,7 +18,7 @@ class tgapt {
 
   file { '/etc/apt/sources.list.d/ubuntu-main.list':
     ensure => present,
-    source => 'puppet:///modules/apt/ubuntu-main.list',
+    source => 'puppet:///modules/tgapt/ubuntu-main.list',
   }
 
 }
