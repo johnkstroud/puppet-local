@@ -1,6 +1,6 @@
 #this is a class for apt configuration
 
-class apt {
+class tgapt {
   # include 'apt::ubuntuapt'
 
   file { '/etc/apt/sources.list.d/newrelic.list':
