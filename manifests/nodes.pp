@@ -35,8 +35,4 @@ class linux {
     enable => true,
   }
 
-  file { '/etc/ntp.conf':
-    ensure  => file,
-    content => template('puppet.erb'),
-  }
 }
